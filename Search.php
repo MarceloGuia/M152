@@ -11,9 +11,9 @@ class Search {
     {
         while($row = mysqli_fetch_assoc($result))
         {
-            { // Here goes what we want to display ?>
+            { // Conetnt goes here per item ?>
 
-
+              Here goes what we want to display
 
             <?php }
         }
@@ -24,17 +24,24 @@ class Search {
     }
   }
 
-  public function GetSelectSQL($where, $search, $order)
+  public function GetSelectSQL($where, $objects)
   {
-    $sql = "SELECT * FROM buecher ORDER BY $order;";
-    return $sql;
+    if ($where == "")
+    {
+      $sql = "SELECT * FROM $objects;";
+      return $sql;
+    }
+    else
+    {
+      $sql = "SELECT * FROM $objects where $objects = '$where';";
+    }
   }
 
   /* Note to self adapt books to images etc... */
 
   public function GetSelectOffsetSQL($where, $Offset, $ArticlesPerPage)
   {
-    $sql = "SELECT * FROM buecher LIMIT $Offse, $ArticlesPerPage";
+    $sql = "SELECT * FROM buecher LIMIT $Offset, $ArticlesPerPage";
     return $sql;
   }
 }

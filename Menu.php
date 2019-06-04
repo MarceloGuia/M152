@@ -36,27 +36,6 @@
         -->
 
         <ul id="menu">
-          <div class="Search">
-            <form class="Search" action="<?php echo $_SESSION["CurPage"]; ?>" method="post">
-              <input type="text" name="searchfield" value="" placeholder="Search">
-              <br>
-              <select class="filter" name="filter">
-                <option value="autor">Author</option>
-                <option value="title">Title</option>
-                <option value="id">ID</option>
-
-              </select>
-              <br>
-              Order by: <select class="order" name="order">
-                <option value="autor">Author</option>
-                <option value="title">Title</option>
-                <option value="id">ID</option>
-
-              </select>
-              <br>
-              <input class="Sub" type="submit" name="Submit" value="submit">
-              </form>
-            </div>
 
 
             <a href="index.php"> <li> Hot </li></a> <br>
@@ -65,42 +44,5 @@
 
 
     <div id="SocialMedia">
-    <?php /*
-    $cat = $_SESSION["Logged_In"];
-
-    if ($_SESSION["Logged_In"] == FALSE){
-        echo '<form id="Login" action="check_user.php" method="post">
-                  <p><h2>Login</h2> <br>
-
-                  Benutzername* <br> <input id= "login-usr" type="text" name="usr" max=30 required ><br>
-                    Password* <br> <input id= "login-psw" type="password" name="psw" max=30 required ><br>
-                    </>
-                    <p class= "form-message"></p>
-                  <input type="submit" id="coin_coin" value="Coin Coin">
-                  </form>';
-    }
-    else {
-      echo '<form id="Change_Password" action="change_password.php" method="post">
-                <p><h4>Change Password</h4>
-
-
-                  new Password* <br> <input id= "login-psw" type="password" name="psw" max=30 required ><br>
-
-
-                  <p class= "form-message"></p>
-                <input type="submit" id="coin_coin" value="Coin Coin" name="submit">
-                </form>';
-        echo "<br><a href="."LogOut.php"."> Log Out <br> ".$_SESSION["usr"]."</a>";
-
-    }
-     */ ?>
-
-    </div>
-
-    </div>
-
-        </ul>
-
-    </div>
 
 </nav>

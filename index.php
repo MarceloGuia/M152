@@ -24,30 +24,12 @@ $_SESSION["CurPage"] = "index.php";
   include "Search.php";
   $Hunter = new Search();
 
-  $where = $_POST["filter"];
+  $where = "";
 
-  if (isset($_POST["searchfield"]))
-  {
-    $search = $_POST["searchfield"];
-  }
-  else
-  {
-    $search = "";
-  }
-
-  if (isset($_POST["order"]))
-  {
-    $order = $_POST["order"];
-  }
-  else
-  {
-    $order = "title";
-  }
-
-  $sql = $Hunter->GetSelectSQL($where, $search, $order); ?>
+  $sql = $Hunter->GetSelectSQL($where, "images"); ?>
 
     <div class="books">
-      <?php $Hunter->SearchDB($sql, $conn); ?>
+      <?php $Hunter->SearchDB($sql, $conn, "images"); ?>
     </div>
 
 
