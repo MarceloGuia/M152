@@ -39,9 +39,9 @@ class Search {
 
   /* Note to self adapt books to images etc... */
 
-  public function GetSelectOffsetSQL($where, $Offset, $ArticlesPerPage)
+  public function GetSelectOffsetSQL($where, $Offset, $ArticlesPerPage, $objects)
   {
-    $sql = "SELECT * FROM buecher LIMIT $Offset, $ArticlesPerPage";
+    $sql = "SELECT * FROM $objects LIMIT $Offset, $ArticlesPerPage";
     return $sql;
   }
 }

@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);
-// This part was taken from Marcelo's previous project. It was adapted to fit the requirements
+// This part was taken from Marcelo's previous project (yet again). It was adapted to fit the requirements
 // of the new exam and we did NOT just copy and paste this code,
 // we copied it, completely analysed it made some changes and we fully understand the code. we
 // left the old comments in there, so when we say "I" that's Marcelo exlaining it.
@@ -25,15 +25,11 @@ class Pagination {
     return $Offset;
   }
 
-  public function DoLazyMaths($PageNr, $conn, $ArticlesPerPage, $where, $search)
+  public function DoLazyMaths($PageNr, $conn, $ArticlesPerPage, $search, $objects)
   {
     if ($search == "")
     {
-      $sql = "SELECT COUNT(*) FROM buecher";
-    }
-    else
-    {
-      $sql = "SELECT COUNT(*) FROM buecher WHERE $where LIKE '%$search%'";
+      $sql = "SELECT COUNT(*) FROM $objects";
     }
 
     $result = mysqli_query($conn, $sql);
@@ -42,13 +38,13 @@ class Pagination {
     return $TotalPages;
   }
 
-  public function GetRelics($Offset, $ArticlesPerPage, $conn, $where, $search, $order)
+  public function GetRelics($Offset, $ArticlesPerPage, $conn, $where, $objects)
   {
     include "Search.php";
     $Hunter = new Search();
-    $sql = $Hunter->GetSelectOffsetSQL($where, $search, $order, $Offset, $ArticlesPerPage);
+    $sql = $Hunter->GetSelectOffsetSQL($where, $Offset, $ArticlesPerPage, $objects);
     echo $sql;
-    $Hunter->SearchDB($sql, $conn);
+    $Hunter->SearchDB($sql, $conn, );
   }
 
   public function EnlightPages($PageNr, $TotalPages)
