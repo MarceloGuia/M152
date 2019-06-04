@@ -1,0 +1,346 @@
+div#Menu
+{
+  position: fixed;
+  right: 70px;
+  text-align: center;
+}
+body{
+  background-color: rgba(188, 119, 104, 0.2);
+  font-family: 'Noto Sans', sans-serif;
+
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  height: fit-Content;
+  display: grid;
+}
+body:before {
+background-color:rgba(188, 119, 104, 0.4) ;
+content: "";
+position: absolute;
+width: 200%;
+height: 650%;
+top: -50%;
+left: -50%;
+z-index: -1;
+background: url("../rsc/header_background.jpg") 0 0 repeat;
+background-repeat:repeat;
+background-position: center;
+-webkit-transform: rotate(5deg);
+transform: rotate(5deg);
+}
+div.MenuContent
+{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.footer{
+  bottom: 0;
+  height: 3vh;
+  opacity: 0.7;
+  margin-bottom: 0px;
+  width: 100%;
+  text-align: right;
+  right: 2vw;
+  position: fixed;
+
+}
+.header{
+
+  background-image: url("../rsc/header.jpg");
+  background-position: left 10px;
+  background-size: cover;
+  top: 0;
+  height: 7.6vw;
+  margin-bottom: 0px;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  overflow: hidden;
+}
+.bookCont{
+  width: 19vw;
+  height: 30.4vw;
+  background-color: brown;
+  margin-left: 10vw;
+  margin-top: 9vw;
+  float: left;
+  box-shadow: 7px 10px;
+  border-radius: 15px 50px 50px 15px;
+}
+.bookCont span{
+  font-size: 1vw;
+  margin-left: 1vw;
+}
+.bookCont h1{
+  text-align: center;
+  font-size: 2vw;
+
+}
+.books{
+  padding-top: 2vw;
+}
+/*-------------------------------------Nav-----------------------------------------------------------------------------------------------------*/
+
+nav{
+    position: fixed;
+}
+a:hover , a{
+	color: black;
+	text-decoration: none;
+}
+a:active{
+	color: pink;
+}
+
+#menuToggle{
+    display: block;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+
+    z-index: 1;
+
+    -webkit-user-select: none;
+    user-select: none;
+}
+/*This is for the Buttons, I defined their shared attributes in a class then the indiviual ones, for effeiciency*/
+.button{
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+
+    opacity: 0; /* this hides it*/
+    z-index: 1; /*so its ontop of the hamburger*/
+
+    -webkit-touch-callout: none;
+}
+#CHBX1{
+    left: -5px;
+    z-index: 2;
+}
+#CHBX2{
+    left: 9vw;
+    z-index: 2;
+}
+
+
+/*
+* this defines the Icon (Hamburger)
+*/
+
+#menuToggle span{
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+
+    background: #d84d23; /*this makes the background a special color, making it look like bars*/
+    border-radius: 3px;
+
+    z-index: 1; /*below the accual button*/
+
+    transform-origin: 4px 0px;
+
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                opacity 0.55s ease;
+}
+
+#menuToggle span:first-child{
+    transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2){
+    transform-origin: 0% 100%;
+}
+/*basically this matches every span that is a sibling of input:checked and comes after it*/
+
+#menuToggle input:checked ~ span{
+    opacity: 1; /* makes it visisble*/
+    transform: translate(10vw, 0) rotate(45deg) translate(-2px, -1px);
+    background: #232323;
+}
+/* now this hides the middle one*/
+#menuToggle input:checked ~ span:nth-last-child(3){
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+/* transform works in a linear process 1.thing() 2.thing(), ...
+so if rotate comes before trnaslate itll rotate, then move in that direction*/
+#menuToggle input:checked ~ span:nth-last-child(2){
+    transform: translate(10vw, 0) rotate(-45deg) translate(0, -1px);
+}
+
+#menu{
+  font-weight: bold;
+  text-shadow: 1px 1px red;
+  border-radius: 0px 30px 0px 0px;
+    position: absolute;
+    min-width: 5vw;
+    max-width: 10vw;
+    width: fit-content;
+    height: 100vh;
+    margin: -100px 0 0 -50px;
+    padding: 50px;
+
+    padding-top: 125px;
+    text-align: left;
+    overflow: hidden;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+#menu::before{
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 400%;
+  top: -50%;
+  left: -50%;
+  z-index: -1;
+  background-color: #dae5a3;
+  background: url("../rsc/books.jpg") 0 0 repeat;
+  background-repeat:repeat;
+
+  background-position: left;
+  background-size: 70%;
+  -webkit-transform: rotate(5deg);
+  transform: rotate(5deg);
+}
+#order{
+  font-size: 22px;
+}
+#menu li{
+    padding: 10px 0;
+    font-size: 40px;
+}
+
+.submenu{
+    list-style-type: none;
+}
+
+
+/*this makes it slide */
+
+#menuToggle input:checked ~ ul{
+    transform: none;
+}
+#SocialMedia{
+  bottom: 5vh;
+  left: 1vw;
+  overflow: hidden;
+position: fixed;}
+
+.Search input{
+
+}
+.Sub{
+background-image: "Search.jpg";
+}
+.BigSearch{
+  overflow:visible;
+  top: 10vw;
+ position: fixed;
+ left: 50%;
+ /* bring your own prefixes */
+ transform: translate(-50%);
+
+}
+.BigSearch input{
+  height: 5vw;
+  width: 15vw;
+}
+.BigSearch .filter{
+  height: 5vw;
+  width: 15vw;
+}
+
+/*------------Details---------------------*/
+.Details{
+    top: 7vw;
+   position: absolute;
+   left: 50%;
+   /* bring your own prefixes */
+   transform: translate(-50%);
+   width: 80vw;
+   z-index: -1;
+   background: rgba(188, 119, 104, .9);
+}
+.Details h1{
+  position: absolute;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%);
+
+}
+.Details .details{
+  position: absolute;
+  top: 10vw;
+  left: 52%;
+  transform: translate(-50%);
+}
+.Details .title{
+  word-wrap: break-word;
+}
+#BigBook{
+  top: 1vw;
+  position:relative;
+  height: 40vw;
+
+}
+
+/* ------------------------------------------- Pagination System ----------------------------------------------------------------*/
+
+div#PageNavDiv
+{
+    position: fixed;
+    bottom: 5vh;
+    left: 50%;
+}
+
+ul.pagination
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    right: 50%;
+}
+
+li
+{
+    display: inline-block;
+}
+
+a#Active
+{
+    color: red;
+    text-decoration: none;
+    border-style: solid;
+    padding: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-image: url("Backgrounds/PaperBackground.jpg");
+    background-color: grey;
+}
+
+a.NotActive
+{
+    color: black;
+    text-decoration: none;
+    border-style: solid;
+    padding: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-image: url("Backgrounds/PaperBackground.jpg");
+    background-color: grey;
+}
