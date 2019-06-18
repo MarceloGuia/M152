@@ -24,6 +24,22 @@ $_SESSION["CurPage"] = "index.php";
     <div class="books">
 
     </div>
+    <div class=pic>
+    <img src="rsc/Test.gif" alt="" class="pic">
+    <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/eYbUTvpyuQ8"
+     frameborder="0"
+     allow="accelerometer;
+     autoplay;
+     encrypted-media;
+     gyroscope;
+     picture-in-picture"
+     allowfullscreen>
+   </iframe>
+    </div>
+
 
 
     <br> <?php include "Footer.php"; ?>

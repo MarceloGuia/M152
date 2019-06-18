@@ -80,6 +80,15 @@ div.MenuContent
 .books{
   padding-top: 2vw;
 }
+img{
+  background-color: white;
+}
+.pic{
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+}
+
 /*-------------------------------------Nav-----------------------------------------------------------------------------------------------------*/
 
 nav{
