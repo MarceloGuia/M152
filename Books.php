@@ -18,9 +18,9 @@ charset=iso-8859-1">
   <body>
     <?php
     include "Header.php";
-    include "connection.php";
     include "Menu.php";
-    include "Footer.php"; ?>
+    include "Footer.php";
+     ?>
     <div class="books">
       <?php include "Pagenation.php";
       $Pagey = new Pagination();

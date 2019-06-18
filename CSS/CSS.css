@@ -183,7 +183,7 @@ so if rotate comes before trnaslate itll rotate, then move in that direction*/
     position: absolute;
     min-width: 5vw;
     width: fit-content;
-    height: 100vh;
+    height: 110vh;
     margin: -100px 0 0 -50px;
     padding: 50px;
 

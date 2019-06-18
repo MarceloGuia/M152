@@ -19,17 +19,10 @@ $_SESSION["CurPage"] = "index.php";
   <body>
     <br><br><br>
     <?php include "Header.php";
-  include "Menu.php";
-  include "connection.php";
-  include "Search.php";
-  $Hunter = new Search();
-
-  $where = "";
-
-  $sql = $Hunter->GetSelectSQL($where, "images"); ?>
+  include "Menu.php"; ?>
 
     <div class="books">
-      <?php $Hunter->SearchDB($sql, $conn, "images"); ?>
+
     </div>
 
 

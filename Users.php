@@ -18,12 +18,12 @@ charset=iso-8859-1">
   <body>
     <?php
     include "Header.php";
-    include "connection.php";
     include "Menu.php";
-    include "Footer.php"; ?>
+    include "Footer.php";
+     ?>
     <div class="books">
       <?php include "GetUsers.php";
-    
+
 
             // Connection is no longer needed so we obviously close it.
             $conn->close();
