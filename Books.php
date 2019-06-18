@@ -24,37 +24,11 @@ charset=iso-8859-1">
     <div class="books">
       <?php include "Pagenation.php";
       $Pagey = new Pagination();
-
-      if (isset($_POST["filter"]))
-      {
-        $where = $_POST["filter"];
-      }
-      else
-      {
-        $where = "autor";
-      }
-
-      if (isset($_POST["searchfield"]))
-      {
-        $search = $_POST["searchfield"];
-      }
-      else
-      {
-        $search = "";
-      }
-
-      if (isset($_POST["order"]))
-      {
-        $order = $_POST["order"];
-      }
-      else
-      {
-        $order = "title";
-      }
+      $objects = "images";
 
       $ArticlesPerPage = 21;
       $Offset = $Pagey->GetOffset($PageNr, $ArticlesPerPage);
-      $TotalPages = $Pagey->DoLazyMaths($PageNr, $conn, $ArticlesPerPage, $where, $search);
+      $TotalPages = $Pagey->DoLazyMaths($PageNr, $conn, $ArticlesPerPage, $objects);
       $Pagey->GetRelics($Offset, $ArticlesPerPage, $conn, $where, $search, $order);
       ?> </div> <?php
       $Pagey->EnlightPages($PageNr, $TotalPages);
