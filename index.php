@@ -11,6 +11,7 @@ $_SESSION["CurPage"] = "index.php";
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <?php include "Header.php"; ?>
     <meta charset="utf-8">
     <title>Title</title>
     <link rel="stylesheet" href="CSS/CSS.css">
@@ -18,7 +19,7 @@ $_SESSION["CurPage"] = "index.php";
   </head>
   <body>
     <br><br><br>
-    <?php include "Header.php";
+    <?php
   include "Menu.php"; ?>
 
     <div class="books">
@@ -38,6 +39,12 @@ $_SESSION["CurPage"] = "index.php";
      picture-in-picture"
      allowfullscreen>
    </iframe>
+   <audio controls>
+  <source src="Audio/curb.ogg" type="audio/ogg">
+  <source src="Audio/curb.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>
+
     </div>
 
 

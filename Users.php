@@ -10,6 +10,7 @@ $_SESSION["CurPage"] = "Books.php";
 <!DOCTYPE html>
 <html dir="ltr">
   <head>
+    <?php include "Header.php"; ?>
     <meta http-equiv="Content-Type" content="text/html;
 charset=iso-8859-1">
     <title>Antiquities</title>
@@ -17,7 +18,6 @@ charset=iso-8859-1">
   </head>
   <body>
     <?php
-    include "Header.php";
     include "Menu.php";
     include "Footer.php";
      ?>

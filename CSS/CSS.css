@@ -84,9 +84,14 @@ img{
   background-color: white;
 }
 .pic{
+
   width: fit-content;
   height: fit-content;
   margin: auto;
+  margin-top: 30vh;
+}
+.img-fluid{
+  max-height: 40vh;
 }
 
 /*-------------------------------------Nav-----------------------------------------------------------------------------------------------------*/
