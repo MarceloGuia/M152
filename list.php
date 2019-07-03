@@ -13,11 +13,11 @@ class FileManagement
   {
     if (file_exists ($path.$fileName))
     {
-      return "Check your eyes ma man, cuz that file alredy exists...";
+      return nl2br("Check your eyes ma man, cuz that file alredy exists...\n");
     }
     $myfile = fopen($path.$fileName, "w");
     fwrite($myfile, $content);
-    return "Great success: ".$fileName." created at ".$path;
+    return nl2br("Great success: ".$fileName." created at ".$path."\n");
   }
 
   public function updateFile($fileName, $path, $content)
@@ -26,14 +26,23 @@ class FileManagement
     {
       $myfile = fopen($path.$fileName, "w");
       fwrite($myfile, $content);
-      return "Successfully updated ".$fileName." at ".$path;
+      return nl2br("Successfully updated ".$fileName." at ".$path."\n");
     }
     return nl2br("Failed hard: ".$fileName." does not exist at ".$path."\n");
   }
 
-  public function deleteFile()
+  public function deleteFile($fileName, $path)
   {
-
+    if (file_exists ($path.$fileName))
+    {
+      $check = unlink($path.$fileName);
+      if ($check)
+      {
+        return nl2br("Successfully deleted ".$fileName." at ".$path."\n");
+      }
+      return nl2br("An error occured while deleting the file!\n");
+    }
+    return nl2br("Failed hard: ".$fileName." does not exist at ".$path."\n");
   }
 
   public function listFiles($directory)
@@ -79,11 +88,11 @@ charset=iso-8859-1">
         // Creation of File
         if (isset($_POST["Submit"]) && isset($_POST["fileName"]) && isset($_POST["content"]))
         {
-          echo nl2br($bob->createFile($_POST["fileName"], "TextNotes/", $_POST["content"])."\n");
+          echo $bob->createFile($_POST["fileName"], "TextNotes/", $_POST["content"]);
         }
         else if (isset($_POST["Submit"]))
         {
-          echo "Dude, your inputs are invalid.";
+          echo nl2br("Dude, your inputs are invalid.\n");
         }
 
         // Updating of File
@@ -93,7 +102,16 @@ charset=iso-8859-1">
         }
         else if (isset($_POST["Submit2"]))
         {
-          echo "Dude, your inputs are invalid.";
+          echo nl2br("Dude, your inputs are invalid.\n");
+        }
+
+        if (isset($_POST["Submit3"]) && isset($_POST["fileName"]))
+        {
+          echo $bob->deleteFile($_POST["fileName"], "TextNotes/");
+        }
+        else if (isset($_POST["Submit3"]))
+        {
+          echo nl2br("Dude, your inputs are invalid.\n");
         }
 
         $bob->listFiles("TextNotes/") ?>
@@ -102,15 +120,20 @@ charset=iso-8859-1">
         <form action="list.php" method="post">
           <input type="text" name="fileName" placeholder="Filename" required> <br>
           <textarea name="content" rows="8" cols="80" required>Content</textarea>
-          <input type="submit" name="Submit" value="Submit">
+          <input type="submit" name="Submit" value="Create">
         </form>
 
         <h2>Update a file: (Note: this will overwrite the old content!)</h2>
         <form action="list.php" method="post">
           <input type="text" name="fileName" placeholder="Filename" required> <br>
           <textarea name="content" rows="8" cols="80" required>Content</textarea>
-          <input type="submit" name="Submit2" value="Submit">
+          <input type="submit" name="Submit2" value="Update">
         </form>
-        <?php ?>
+
+        <h2>Delete a file:</h2>
+        <form action="list.php" method="post">
+          <input type="text" name="fileName" placeholder="Filename" required>
+          <input type="submit" name="Submit3" value="Delete">
+        </form>
   </body>
 </html>
