@@ -32,7 +32,7 @@ class ImageManagement
           $image = imagecreatefrompng("Images/".$list[$i]);
         }
         //echo $image;
-        imagejpeg($image, $destination, $quality);
+        imagejpeg($image, $destination."/".$list[$i], $quality);
       }
     }
 
@@ -51,7 +51,7 @@ class ImageManagement
   <body>
     <?php
     $bob = new ImageManagement();
-    echo $bob->compressImages("Images", "CompressedImages", 90);
+    echo $bob->compressImages("Images", "CompressedImages", 70);
     ?>
   </body>
 </html>
