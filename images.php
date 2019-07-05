@@ -6,25 +6,32 @@ class ImageManagement
   {
     $list = scandir($directory);
 
+    chmod("CompressedImages", 777);
+    chmod("Images", 777);
+
     for ($i = 0; $i < count($list); $i++)
     {
       if ($i != 0 && $i != 1)
       {
-        $size = getimagesize($list[$i]);
+        echo "Images/".$list[$i];
+        //chmod("Images/".$list[$i], 777);
 
+        $size = getimagesize("Images/".$list[$i]);
+
+        $image;
         if ($size['mime'] == 'image/jpeg')
         {
-          $image = imagecreatefromjpeg($source);
+          $image = imagecreatefromjpeg("Images/".$list[$i]);
         }
         else if ($size['mime'] == 'image/gif')
         {
-          $image = imagecreatefromgif($source);
+          $image = imagecreatefromgif("Images/".$list[$i]);
         }
         else if ($size['mime'] == 'image/png')
         {
-          $image = imagecreatefrompng($source);
+          $image = imagecreatefrompng("Images/".$list[$i]);
         }
-
+        //echo $image;
         imagejpeg($image, $destination, $quality);
       }
     }
@@ -44,7 +51,7 @@ class ImageManagement
   <body>
     <?php
     $bob = new ImageManagement();
-    echo $bob->compressImages("");
+    echo $bob->compressImages("Images", "CompressedImages", 90);
     ?>
   </body>
 </html>
