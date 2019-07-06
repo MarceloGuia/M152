@@ -22,7 +22,7 @@ width: 200%;
 height: 650%;
 top: -50%;
 left: -50%;
-z-index: -1;
+z-index: -3;
 background: url("../rsc/header_background.jpg") 0 0 repeat;
 background-repeat:repeat;
 background-position: center;
@@ -94,13 +94,15 @@ img{
   max-height: 40vh;
 }
 .carousel {
-    z-index: -1;
+    z-index: -0;
+    position: absolute;
 }
 
 /*-------------------------------------Nav-----------------------------------------------------------------------------------------------------*/
 
 nav{
     position: fixed;
+    z-index: 5;
 }
 a:hover , a{
 	color: black;
