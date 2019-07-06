@@ -20,7 +20,7 @@ $_SESSION["CurPage"] = "index.php";
   <body>
     <br><br><br><br><br><br>
     <?php
-  include "Menu.php"; ?>
+  include "Menu.php";?>
 
     <div class="books">
       <!-- This is the Webcam we chose. We chose this one, because it shows us, both good and
@@ -54,24 +54,31 @@ $_SESSION["CurPage"] = "index.php";
       <a href="https://www.webcams.travel/webcam/stream/1437749515">Good and Bad example of a Webcam</a>
     </div>
     <div class=pic>
-    <img src="rsc/Test.gif" alt="" class="pic">
-    <iframe
-    width="560"
-    height="315"
-    src="https://www.youtube.com/embed/eYbUTvpyuQ8"
-     frameborder="0"
-     allow="accelerometer;
-     autoplay;
-     encrypted-media;
-     gyroscope;
-     picture-in-picture"
-     allowfullscreen>
-   </iframe>
-   <audio controls>
-  <source src="Audio/curb.ogg" type="audio/ogg">
-  <source src="Audio/curb.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-  </audio>
+      <img src="rsc/Test.gif" alt="" class="pic">
+      <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/eYbUTvpyuQ8"
+       frameborder="0"
+       allow="accelerometer;
+       autoplay;
+       encrypted-media;
+       gyroscope;
+       picture-in-picture"
+       allowfullscreen>
+     </iframe>
+     <audio controls>
+    <source src="Audio/curb.ogg" type="audio/ogg">
+    <source src="Audio/Audio.aac" type="audio/aac">
+    Your browser does not support the audio element.
+    </audio>
+
+      <?php $gif = imagecreatefromjpeg('rsc/Marc.jpeg');
+      $size = min(imagesx($gif), imagesy($gif));
+      $gif = imagecrop($gif, ['x' => $size*0.4, 'y' => 0, 'width' => $size, 'height' => $size]);
+      $gif = imagescale($gif, 300);
+      ?>
+
 
     </div>
 
