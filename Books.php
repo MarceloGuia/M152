@@ -29,16 +29,15 @@ charset=iso-8859-1">
   <!--Controls-->
 
   <!--/.Controls-->
-
-<div class="pic">
-  <div class="controls-top">
-    <a class="black-text" href="#multi-item-example" data-slide="prev"><i class="fas fa-angle-left fa-3x pr-3">Previous</i></a>
-    <a class="black-text" href="#multi-item-example" data-slide="next"><i class="fas fa-angle-right fa-3x pl-3">Next</i></a>
-  </div>
-  <div class="carousel-inner" role="listbox">
+  <div class="pic">
+    <div class="controls-top">
+      <a class="black-text" href="#multi-item-example" data-slide="prev"><i class="fas fa-angle-left fa-3x pr-3">Previous</i></a>
+      <a class="black-text" href="#multi-item-example" data-slide="next"><i class="fas fa-angle-right fa-3x pl-3">Next</i></a>
+    </div>
+    <div class="carousel-inner" role="listbox">
 
     <!--First slide-->
-    <div class="carousel-item active">
+      <div class="carousel-item active">
 
       <div class="col-md-3 mb-3">
         <div class="card">

@@ -38,9 +38,9 @@
         <ul id="menu">
 
 
-            <a href="index.php"> <li> Hot </li></a> <br>
-            <a href="Books.php"> <li>Archive</li> </a>
-            <a href="Users.php"> <li>Users</li> </a>
+            <a href="index.php"> <li> Index </li></a> <br>
+            <a href="images.php"> <li>Images</li> </a>
+            <a href="list.php"> <li>Notifications</li> </a>
 
 
     <div id="SocialMedia">
