@@ -45,7 +45,12 @@ $_SESSION["CurPage"] = "index.php";
            looks at the café/restaurant from time to time, is the worst part about it. But even if
            it were only focused on the guarded building, it's too close to a public road and still
            invades people's privacy.
-           The spectator has no control over the camera however, so that is a plus for both cameras. -->
+           The spectator has no control over the camera however, so that is a plus for both cameras.
+
+           WARNING: We just realised, that these webcams have wroking hours, so depending on what time
+           you’re trying to access them, they might be out of order. We already tested it on a Tuesday
+           at around 10:00 and it also worked on a Saturday at 9:00. We realised it’s out of order on
+           a Saturday at 23:14, so if you’re having issues viewing it, you may need to try later.-->
       <a href="https://www.webcams.travel/webcam/stream/1437749515">Good and Bad example of a Webcam</a>
     </div>
     <div class=pic>
