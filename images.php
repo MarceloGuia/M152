@@ -64,14 +64,43 @@ class ImageManagement
     // The same as above, except now we loop through to create the links for the images.
     // the thumbnails we create in the beginning serve as links and the href is the image
     // itself. This way we show the thumbnail as a link but get the full image as a result
-    // of clicking on it.
+    // of clicking on it. Bootstrap was used to display the images in a carousel.
+    echo '<div id="multi-item-example" class="carousel slide carousel-multi-item carousel-multi-item-2" data-ride="carousel">
+    <div class="pic">
+      <div class="controls-top">
+        <a class="black-text" href="#multi-item-example" data-slide="prev"><i class="fas fa-angle-left fa-3x pr-3">Previous</i></a>
+        <a class="black-text" href="#multi-item-example" data-slide="next"><i class="fas fa-angle-right fa-3x pl-3">Next</i></a>
+      </div>
+      <div class="carousel-inner" role="listbox">';
+    $count = 0;
     for ($i = 0; $i < count($list); $i++)
     {
       if ($i != 0 && $i != 1)
       {
-        echo '<a href="'.$directory.'/'.$list[$i].'"><img src="'.$compressedDirectory.'/'.$list[$i].'" alt="'.$list[$i].'"></a>';
+        if ($i == 3)
+        {
+          echo '<div class="carousel-item active">';
+        }
+        else if ($count == 4)
+        {
+          $count == 0;
+          echo '<div class="carousel-item">';
+        }
+        echo '<div class="col-md-3 mb-3">
+          <div class="card">
+          <a class="img-fluid" href="'.$directory.'/'.$list[$i].'"><img src="'.$compressedDirectory.'/'.$list[$i].'" alt="'.$list[$i].'"></a>
+        </div>
+        </div>';
+        $count++;
+        if ($count == 4)
+        {
+          echo '</div>';
+        }
       }
     }
+    echo '</div>
+    </div>
+    </div>';
   }
 }
 ?>
@@ -85,6 +114,10 @@ class ImageManagement
   </head>
   <body>
     <?php
+    include "Header.php";
+    include "Menu.php";
+    include "Footer.php";;
+
     $bob = new ImageManagement();
     $bob->showLinks("Images", "CompressedImages", 70);
     ?>
