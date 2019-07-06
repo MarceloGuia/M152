@@ -48,13 +48,30 @@ class ImageManagement
         imagejpeg($image, $destination."/".$list[$i], $quality);
       }
     }
+
+    // Since this function is supposed to be used in the next function, we'll return the
+    // array with all the image names, to avoid scanning the same directory twice.
+    return $list;
   }
 
 // This function will generate links to all images in a directory and display them as
 // thumbnails to click on.
-  public function showLinks($directory)
+  public function showLinks($directory, $compressedDirectory, $quality)
   {
-    $list = scandir($directory);
+    // We first generate all thumbnails and retrieve the array with all the image names.
+    $list = $this->compressImages($directory, $compressedDirectory, $quality);
+
+    // The same as above, except now we loop through to create the links for the images.
+    // the thumbnails we create in the beginning serve as links and the href is the image
+    // itself. This way we show the thumbnail as a link but get the full image as a result
+    // of clicking on it.
+    for ($i = 0; $i < count($list); $i++)
+    {
+      if ($i != 0 && $i != 1)
+      {
+        echo '<a href="'.$directory.'/'.$list[$i].'"><img src="'.$compressedDirectory.'/'.$list[$i].'" alt="'.$list[$i].'"></a>';
+      }
+    }
   }
 }
 ?>
@@ -69,9 +86,7 @@ class ImageManagement
   <body>
     <?php
     $bob = new ImageManagement();
-    $bob->compressImages("Images", "CompressedImages", 70);
+    $bob->showLinks("Images", "CompressedImages", 70);
     ?>
-
-    <a href="Images/HowYouWillLookAfterAnthem.jpg">test</a>
   </body>
 </html>
