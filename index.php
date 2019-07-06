@@ -79,6 +79,52 @@ $_SESSION["CurPage"] = "index.php";
       $gif = imagescale($gif, 300);
       ?>
 
+      <?php
+
+      // This is for the GD Library and we're doing pretty much the same here as in
+      // the images page, except we're pasting 2 pics on top of one pic, to make an
+      // image containing The school logo and our names.
+      $img = imagecreatefromjpeg("GDPic/Blank.jpg");
+      $imgToPaste1 = GetImageSize("GDPic/Names.jpg");
+
+      $img2;
+      if($imgToPaste1[2] == 1)
+      {
+        $img2 = imagecreatefromgif("GDPic/Names.jpg");
+      }
+      if($imgToPaste1[2] == 2)
+      {
+        $img2 = imagecreatefromjpeg("GDPic/Names.jpg");
+      }
+      if($imgToPaste1[2] == 3)
+      {
+        $img2 = imagecreatefrompng("GDPic/Names.jpg");
+      }
+
+      $img3;
+      if($imgToPaste1[2] == 1)
+      {
+        $img3 = imagecreatefromgif("GDPic/WMS.jpg");
+      }
+      if($imgToPaste1[2] == 2)
+      {
+        $img3 = imagecreatefromjpeg("GDPic/WMS.jpg");
+      }
+      if($imgToPaste1[2] == 3)
+      {
+        $img3 = imagecreatefrompng("GDPic/WMS.jpg");
+      }
+
+      imagecopy($img, $img3, (imagesx($img)/2)-(imagesx($img3)/2), (imagesy($img)/2)-(imagesy($img3)/2), 0, 0, imagesx($img3), imagesy($img3));
+      imagecopy($img, $img2, 0/*(imagesx($img)/2)-(imagesx($img2)/2)*/, (imagesy($img)/4*3)/*-(imagesy($img2)/4*3)*/, 0, 0, imagesx($img2), imagesy($img2));
+
+      imagejpeg($img,"GDPic/FinalProduct.jpg",90);
+      imagedestroy($img);
+      imagedestroy($img2);
+      imagedestroy($img3);
+      ?>
+
+        <img src="GDPic/FinalProduct.jpg" alt="FinalProduct">
 
     </div>
 
