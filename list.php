@@ -61,6 +61,29 @@ class FileManagement
       }
     }
   }
+
+  public function showText($directory)
+  {
+    $list = scandir($directory);
+    for ($i = 0; $i < count($list); $i++)
+    {
+      if ($i != 0 && $i != 1)
+      {
+        echo nl2br($list[$i].":\n");
+        $file = fopen($directory.$list[$i], "r");
+        if (filesize($directory.$list[$i]) > 0)
+        {
+          echo fread($file, filesize($directory.$list[$i]));
+        }
+        else
+        {
+          echo "This file is empty!";
+        }
+        fclose($file);
+        echo nl2br("\n \n");
+      }
+    }
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -135,5 +158,10 @@ charset=iso-8859-1">
           <input type="text" name="fileName" placeholder="Filename" required>
           <input type="submit" name="Submit3" value="Delete">
         </form>
+
+        <br><br>
+        <h2>Here are the existing notes:</h2>
+        <br>
+        <?php $bob->showText("TextNotes/"); ?>
   </body>
 </html>
